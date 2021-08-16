@@ -1,7 +1,11 @@
 package com.example.irisdataset.controllers
 
+import com.example.irisdataset.datamodels.HeartbeatStatus
 import com.example.irisdataset.datamodels.Iris
 import com.example.irisdataset.services.IrisDataService
+import io.lettuce.core.RedisConnectionException
+import org.springframework.data.redis.connection.lettuce.LettuceConnection
+import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -11,9 +15,10 @@ import java.util.*
 @RequestMapping("/api/v1/irisdata")
 class IrisDataController(val irisDataService: IrisDataService) {
 
-    @GetMapping("helloflowers")
-    fun getHelloFlowers(): Mono<String> {
-        return Mono.just("Hello, Flowers")
+    @GetMapping("heartbeat")
+    fun getHeartbeat(): Mono<HeartbeatStatus> {
+        val status = HeartbeatStatus(appUp = true)
+        return Mono.just(status)
     }
 
     @GetMapping("all")

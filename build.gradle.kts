@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.21"
 	kotlin("plugin.spring") version "1.5.21"
+	id("com.google.cloud.tools.jib") version "3.1.3"
 }
 
 group = "com.example.irisdataset"
