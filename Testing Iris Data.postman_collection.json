@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "c1fc2ac9-8b8a-49ed-a9af-bbee7dda6732",
+		"name": "Testing Iris Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT Single Iris Record In App",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sepalLength\": \"1.1\",\n    \"sepalWidth\": \"1.2\",\n    \"petalLength\": \"2.1\",\n    \"petalWidth\": \"2.2\",\n    \"irisClass\": \"Iris_Setosa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/single",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"single"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Multiple Iris Record In App",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"sepalLength\": 2.1,\n        \"sepalWidth\": 2.2,\n        \"petalLength\": 3.1,\n        \"petalWidth\": 3.2,\n        \"irisClass\": \"Iris_Setosa\"\n    },\n        {\n        \"sepalLength\": 3.1,\n        \"sepalWidth\": 3.2,\n        \"petalLength\": 4.1,\n        \"petalWidth\": 4.2,\n        \"irisClass\": \"Iris_Setosa\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/multiple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Iris Records",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Training Data Set",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/training",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"training"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validation Data Set",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/validation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"validation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single Iris Record",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/single?id=5cddf30b-60eb-4d46-a30d-4ad85bee2f24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"single"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5cddf30b-60eb-4d46-a30d-4ad85bee2f24"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Heartbeat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/heartbeat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
