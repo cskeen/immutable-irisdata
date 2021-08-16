@@ -2,8 +2,6 @@
 
 This project is a microservice that provides access to a continually growing data set about Irises, in the style of the classic Iris data set.
 
-[TOC]
-
 ### Deployment Requirements
 
  * Redis
