@@ -59,4 +59,9 @@ class IrisDataController(val irisDataService: IrisDataService) {
         return irisDataService.getValidationSet()
     }
 
+    @PutMapping("seed")
+    fun seedClassicIrisData(): Flux<Iris> {
+        return irisDataService.parseClassicIrisDataFile()
+    }
+
 }

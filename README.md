@@ -47,6 +47,9 @@ This project is a microservice that provides access to a continually growing dat
 * GET `/api/v1/irisdata/heartbeat` returns the current application status
 * PUT `/api/v1/irisdata/single` creates a single new Iris record
 * PUT `/api/v1/irisdata/multiple` creates multiple new Iris records at one time
+* PUT `/api/v1/irisdata/seed` seeds the database with the classic Iris data set
+
+The application will maintain an appropriate partitioning between training and validation data as new records are added.
 
 ### Schema & Data Example
 

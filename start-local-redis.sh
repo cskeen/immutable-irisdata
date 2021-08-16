@@ -1,6 +1,6 @@
 CONTAINER_NAME=redis
 CONTAINER_IMAGE=bitnami/redis:latest
-CONTAINER_PORT=6479
+CONTAINER_PORT=6379
 
 function start_local_redis_no_pass {
   docker run \
