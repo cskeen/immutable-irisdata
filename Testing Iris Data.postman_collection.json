@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"sepalLength\": \"1.1\",\n    \"sepalWidth\": \"1.2\",\n    \"petalLength\": \"2.1\",\n    \"petalWidth\": \"2.2\",\n    \"irisClass\": \"Iris_Setosa\"\n}",
+					"raw": "{\n    \"sepalLength\": \"1.1\",\n    \"sepalWidth\": \"1.2\",\n    \"petalLength\": \"2.1\",\n    \"petalWidth\": \"2.2\",\n    \"irisClass\": \"Iris-setosa\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n    {\n        \"sepalLength\": 2.1,\n        \"sepalWidth\": 2.2,\n        \"petalLength\": 3.1,\n        \"petalWidth\": 3.2,\n        \"irisClass\": \"Iris_Setosa\"\n    },\n        {\n        \"sepalLength\": 3.1,\n        \"sepalWidth\": 3.2,\n        \"petalLength\": 4.1,\n        \"petalWidth\": 4.2,\n        \"irisClass\": \"Iris_Setosa\"\n    }\n]",
+					"raw": "[\n    {\n        \"sepalLength\": 2.1,\n        \"sepalWidth\": 2.2,\n        \"petalLength\": 3.1,\n        \"petalWidth\": 3.2,\n        \"irisClass\": \"Iris-setosa\"\n    },\n        {\n        \"sepalLength\": 3.1,\n        \"sepalWidth\": 3.2,\n        \"petalLength\": 4.1,\n        \"petalWidth\": 4.2,\n        \"irisClass\": \"Iris-setosa\"\n    }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,6 +62,28 @@
 						"v1",
 						"irisdata",
 						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seed Classic Iris Data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/irisdata/seed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"irisdata",
+						"seed"
 					]
 				}
 			},
