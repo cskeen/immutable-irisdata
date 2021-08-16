@@ -4,6 +4,7 @@ import com.example.irisdataset.datamodels.HeartbeatStatus
 import com.example.irisdataset.datamodels.Iris
 import com.example.irisdataset.services.IrisDataService
 import io.lettuce.core.RedisConnectionException
+import io.lettuce.core.RedisException
 import org.springframework.data.redis.connection.lettuce.LettuceConnection
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.bind.annotation.*
@@ -15,9 +16,16 @@ import java.util.*
 @RequestMapping("/api/v1/irisdata")
 class IrisDataController(val irisDataService: IrisDataService) {
 
+    var redisStatus = true
+
+    @ExceptionHandler(RedisException::class)
+    fun handleGenericRedisException() {
+        redisStatus = false
+    }
+
     @GetMapping("heartbeat")
     fun getHeartbeat(): Mono<HeartbeatStatus> {
-        val status = HeartbeatStatus(appUp = true)
+        val status = HeartbeatStatus(appUp = true, redisUp = redisStatus)
         return Mono.just(status)
     }
 
