@@ -2,6 +2,10 @@
 
 This project is a microservice that provides access to a continually growing data set about Irises, in the style of the classic Iris data set.
 
+The KUDO operator that corresponds with this service is available here: https://github.com/cskeen/immutableirisdata-operator
+
+The OCI image for immutable-irisdata is hosted here: https://hub.docker.com/repository/docker/cskeen/irisdataset
+
 ### Deployment Requirements
 
  * Redis
