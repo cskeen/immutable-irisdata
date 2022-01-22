@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+    links:
+      - redis
+  redis-server:
+    image: bitnami/redis:latest
+    ports:
+      - "6379"

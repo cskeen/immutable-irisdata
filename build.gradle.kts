@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.5.3"
+	id("org.springframework.boot") version "2.5.9"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.5.21"
-	kotlin("plugin.spring") version "1.5.21"
+	kotlin("jvm") version "1.6.10"
+	kotlin("plugin.spring") version "1.6.10"
 	id("com.google.cloud.tools.jib") version "3.1.3"
 }
 
@@ -20,6 +20,7 @@ extra["springCloudVersion"] = "2020.0.3"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("io.netty:netty-resolver-dns-native-macos:4.1.72.Final:osx-aarch_64")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -28,6 +29,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework.cloud:spring-cloud-function-web")
+	implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.4")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.4")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
