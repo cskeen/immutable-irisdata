@@ -16,7 +16,7 @@ export async function getIrisData(irisId) {
 }
 
 export async function addNewIris(irisData) {
-   return postRequestData(`${IRIS_BACKEND_URL}/single`, irisData)
+   return putRequestData(`${IRIS_BACKEND_URL}/single`, irisData)
 }
 
 export async function addMultipleIris(multipleIrisData) {
@@ -32,5 +32,5 @@ export async function getValidationData() {
 }
 
 export async function seedData() {
-    return putRequestData(`${IRIS_BACKEND_URL}/seed`)
+   return putRequestData(`${IRIS_BACKEND_URL}/seed`)
 }
