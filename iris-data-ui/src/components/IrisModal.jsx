@@ -46,83 +46,83 @@ const IrisModal = ( {openModal, handleModalState} ) => {
          <Box sx={style}>
             <Typography variant={'h3'}>Iris Data</Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
-               <Stack>
-            <Controller
-               name="irisClass"
-               control={control}
-               render={({ field }) =>
-               <TextField
-                  {...field}
-                  variant="outlined" 
-                  errors={errors}
-                  label={"Iris Class"}
-                  name={"irisClass"}
-                  />}
-               />
+            <Stack spacing={1}>
                <Controller
-                  name="petalLength"
+                  name="irisClass"
                   control={control}
                   render={({ field }) =>
-                     <TextField
-                        {...field}
-                        variant="outlined" 
-                        errors={errors}
-                        label={"Petal Length"}
-                        name={"petalLength"}
+                  <TextField
+                     {...field}
+                     variant="outlined" 
+                     errors={errors}
+                     label={"Iris Class"}
+                     name={"irisClass"}
                      />}
-               />
-               <Controller
-                  name="petalWidth"
-                  control={control}
-                  render={({ field }) =>
-                     <TextField
-                        {...field}
-                        variant="outlined" 
-                        errors={errors}
-                        label={"Petal Width"}
-                        name={"petalWidth"}
-                     />}
-               />
-               <Controller
-                  name="sepalLength"
-                  control={control}
-                  render={({ field }) =>
-                     <TextField
-                        {...field}
-                        variant="outlined" 
-                        errors={errors}
-                        label={"Sepal Width"}
-                        name={"sepalWidth"}
-                     />}
-               />
-               <Controller
-                  name="sepalWidth"
-                  control={control}
-                  render={({ field }) =>
-                     <TextField 
-                        {...field}
-                        variant="outlined" 
-                        errors={errors}
-                        label={"Sepal Length"}
-                        name={"sepalLength"}
-                     />}
-               />
-               <Grid component="label" container alignItems="center" spacing={1}>
-                  <Grid item>Validation</Grid>
-                  <Grid item>
+                  />
                   <Controller
-                     name="trainingData"
+                     name="petalLength"
                      control={control}
                      render={({ field }) =>
-                     <Switch
-                        {...field}
-                     />}
-                     />
+                        <TextField
+                           {...field}
+                           variant="outlined" 
+                           errors={errors}
+                           label={"Petal Length"}
+                           name={"petalLength"}
+                        />}
+                  />
+                  <Controller
+                     name="petalWidth"
+                     control={control}
+                     render={({ field }) =>
+                        <TextField
+                           {...field}
+                           variant="outlined" 
+                           errors={errors}
+                           label={"Petal Width"}
+                           name={"petalWidth"}
+                        />}
+                  />
+                  <Controller
+                     name="sepalLength"
+                     control={control}
+                     render={({ field }) =>
+                        <TextField
+                           {...field}
+                           variant="outlined" 
+                           errors={errors}
+                           label={"Sepal Length"}
+                           name={"sepalLength"}
+                        />}
+                  />
+                  <Controller
+                     name="sepalWidth"
+                     control={control}
+                     render={({ field }) =>
+                        <TextField 
+                           {...field}
+                           variant="outlined" 
+                           errors={errors}
+                           label={"Sepal Width"}
+                           name={"sepalWidth"}
+                        />}
+                  />
+                  <Grid component="label" container alignItems="center" spacing={1}>
+                     <Grid item>Validation</Grid>
+                     <Grid item>
+                     <Controller
+                        name="trainingData"
+                        control={control}
+                        render={({ field }) =>
+                        <Switch
+                           {...field}
+                        />}
+                        />
+                     </Grid>
+                     <Grid item>Trainning</Grid>
                   </Grid>
-                  <Grid item>Trainning</Grid>
-               </Grid>
                </Stack>
-               <Stack direction={"row"}>
+               <Stack direction={"row"} justifyContent={"flex-end"}>
                   <Button as="button" type="submit">
                      Save
                   </Button>
