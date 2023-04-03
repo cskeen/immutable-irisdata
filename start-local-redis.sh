@@ -1,5 +1,6 @@
 CONTAINER_NAME=redis
-CONTAINER_IMAGE=bitnami/redis:latest
+# CONTAINER_IMAGE=bitnami/redis:latest
+CONTAINER_IMAGE=arm64v8/redis:alpine
 CONTAINER_PORT=6379
 
 function start_local_redis_no_pass {

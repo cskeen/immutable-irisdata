@@ -10,7 +10,7 @@ plugins {
 
 group = "com.example.irisdataset"
 version = "1.0.0"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
