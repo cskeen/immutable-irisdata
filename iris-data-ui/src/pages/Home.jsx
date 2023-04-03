@@ -1,19 +1,35 @@
 import React, {useCallback, useState} from 'react';
-import {useFetchAllIrisData, seedData} from "../data/services/iris-service";
+import {useFetchAllIrisData, seedData, useFetchValidationData, useFetchTrainningData} from "../data/services/iris-service";
 import {Button, Container, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {useQueryClient} from "@tanstack/react-query";
 import IrisModal from '../components/IrisModal';
+import { CSVLink } from 'react-csv';
 
 
 const Home = () => {
     const queryClient = useQueryClient()
     const fetchedDataObject = useFetchAllIrisData()
     const [openModal, setOpenModal] = useState(false)
+    const [downloadData, setDownloadData] = useState('')
+    const fetchedValidationData = useFetchValidationData()
+    const fetchedTrainningData = useFetchTrainningData()
 
     const seedIrisData = useCallback(() => {
         seedData()
         queryClient.invalidateQueries({ queryKey: ['AllIrisData'] })
     }, [queryClient])
+
+    const downloadValidationData = useCallback(() => {
+        fetchedValidationData.refetch()
+        const download = fetchedValidationData.data
+        setDownloadData(download)
+    },[fetchedValidationData])
+
+    const downloadTrainningData = useCallback(() => {
+        fetchedTrainningData.refetch()
+        const download = fetchedTrainningData.data
+        setDownloadData(download)
+    },[fetchedTrainningData])
 
     if (fetchedDataObject.isError){
         return (
@@ -23,14 +39,32 @@ const Home = () => {
         )
     }
 
+    const headers = [
+        { label: "Id", key: "id" },
+        { label: "Iris Class", key: "irisClass" },
+        { label: "Petal Length", key: "petalLength" },
+        { label: "Petal Width", key: "petalWidth" },
+        { label: "Sepal Length", key: "sepalLength" },
+        { label: "Sepal Width", key: "sepalWidth" },
+        { label: "Trainning Data", key: "trainingData" }
+    ];
+
+    // console.log(fetchedTrainningData.data)
+
     return (
         <div>
             <Container maxWidth={'lg'}>
                 <IrisModal openModal={openModal} handleModalState={setOpenModal}/>
                 <h1>Iris ML data</h1>
-                <Stack direction={"row"} spacing={2} sx={{marginBottom:'2rem'}}>
-                    <Button variant="contained" onClick={seedIrisData}>Seed</Button>
+                <Stack direction={"row"} spacing={2} justifyContent={"space-around"} sx={{marginBottom:'2rem'}}>
+                    <Button variant="contained" onClick={seedIrisData}>Seed Iris Data</Button>
                     <Button variant="contained" onClick={() => setOpenModal(!openModal)}>Add Iris Data</Button>
+                    <CSVLink data={downloadData} headers={headers} filename='trainningIrisData.csv' style={{'textDecoration': 'none'}}>
+                        <Button variant='contained' onClick={downloadTrainningData}>Extract Trainning Data</Button>
+                    </CSVLink>
+                    <CSVLink data={downloadData} headers={headers} filename='validationIrisData.csv' style={{'textDecoration': 'none'}}>
+                        <Button variant='contained' onClick={downloadValidationData}>Extract Validation Data</Button>
+                    </CSVLink>
                 </Stack>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="iris table">

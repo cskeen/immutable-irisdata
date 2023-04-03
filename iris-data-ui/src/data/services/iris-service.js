@@ -3,12 +3,34 @@ import { useQuery } from "@tanstack/react-query"
 
 const IRIS_BACKEND_URL = '/api/v1/irisdata'
 
-async function getAllIrisData() {
-   return getRequestData(`${IRIS_BACKEND_URL}/all`)
+export const useFetchAllIrisData = () => {
+   return useQuery(["AllIrisData"], getAllIrisData)
 }
 
-export const useFetchAllIrisData = () => {
-   return useQuery(["AllIrisData"], () => getAllIrisData())
+export const useFetchValidationData = () => {
+   return useQuery(
+      ["ValidationData"], 
+      getValidationData,
+      {
+         refetchOnWindowFocus: false,
+         enabled: false
+      }
+   )
+}
+
+export const useFetchTrainningData = () => {
+   return useQuery(
+      ["TrainningData"], 
+      getTrainningData,
+      {
+         refetchOnWindowFocus: false,
+         enabled: false
+      }
+   )
+}
+
+export async function getAllIrisData() {
+   return getRequestData(`${IRIS_BACKEND_URL}/all`)
 }
 
 export async function getIrisData(irisId) {

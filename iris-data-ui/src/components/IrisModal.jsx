@@ -44,7 +44,7 @@ const IrisModal = ( {openModal, handleModalState} ) => {
          open={openModal}
       >
          <Box sx={style}>
-            <Typography variant={'h2'}>Iris Data</Typography>
+            <Typography variant={'h3'}>Iris Data</Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                <Stack>
             <Controller
