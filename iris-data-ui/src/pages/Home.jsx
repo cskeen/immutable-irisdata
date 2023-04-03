@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
-import {useFetchAllIrisData, seedData, useFetchValidationData, useFetchTrainningData} from "../data/services/iris-service";
+import {useFetchAllIrisData, seedData, useFetchValidationData, useFetchTrainningData, addNewIris} from "../data/services/iris-service";
 import {Button, Container, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {useQueryClient} from "@tanstack/react-query";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
 import IrisModal from '../components/IrisModal';
 import { CSVLink } from 'react-csv';
 
@@ -13,6 +13,7 @@ const Home = () => {
     const [downloadData, setDownloadData] = useState('')
     const fetchedValidationData = useFetchValidationData()
     const fetchedTrainningData = useFetchTrainningData()
+    const mutation = useMutation({mutationFn: addNewIris})
 
     const seedIrisData = useCallback(() => {
         seedData()
@@ -54,7 +55,7 @@ const Home = () => {
     return (
         <div>
             <Container maxWidth={'lg'}>
-                <IrisModal openModal={openModal} handleModalState={setOpenModal}/>
+                <IrisModal openModal={openModal} handleModalState={setOpenModal} mutation={mutation}/>
                 <h1>Iris ML data</h1>
                 <Stack direction={"row"} spacing={2} justifyContent={"space-around"} sx={{marginBottom:'2rem'}}>
                     <Button variant="contained" onClick={seedIrisData}>Seed Iris Data</Button>

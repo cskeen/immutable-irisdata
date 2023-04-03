@@ -1,30 +1,18 @@
 import React from "react";
 import { Modal, TextField, Button, Box, Stack, Typography, Grid, Switch } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
-import { addNewIris } from "../data/services/iris-service";
 
-const IrisModal = ( {openModal, handleModalState} ) => {
+const IrisModal = ( {openModal, handleModalState, mutation} ) => {
 
    const {
       control,
       handleSubmit,
-      formState: { errors },
-      setValue
+      formState: { errors }
    } = useForm();
-
-   const mutation = useMutation({
-      mutationFn: addNewIris,
-      onSuccess:(data)=>{  
-         Object.entries(data).forEach(([key, value]) => {
-         setValue(key, value);
-         });
-         handleModalState(false)
-      }
-   })
 
    const onSubmit = (data) => {
       mutation.mutate(data)
+      handleModalState(false)
    }
 
    const style = {
